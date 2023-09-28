@@ -6,8 +6,12 @@ name: .NET
 on:
   push:
     branches: [ "develop" ]
+    paths:
+      - MyFirstConsoleApplication/**
   pull_request:
     branches: [ "develop" ]
+    paths:
+      - MyFirstConsoleApplication/**
 
 jobs:
   build:
@@ -21,8 +25,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
