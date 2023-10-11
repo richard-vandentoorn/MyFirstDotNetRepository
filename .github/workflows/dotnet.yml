@@ -6,8 +6,7 @@ name: .NET
 on:
   push:
     branches: [ "develop" ]
-    paths:
-      - MyFirstConsoleApplication/**
+  
   pull_request:
     branches: [ "develop" ]
     paths:
@@ -35,3 +34,4 @@ jobs:
       with:
         name: nupkg
         path: ./${{ env.PROJECT_NAME }}/bin/Release/*.nupkg
+
