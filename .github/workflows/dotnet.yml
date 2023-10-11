@@ -11,6 +11,14 @@ on:
     branches: [ "develop" ]
     paths:
       - MyFirstConsoleApplication/**
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Where to install
+        options: 
+        - Richard
+        - Ashley
 
 jobs:
   build:
