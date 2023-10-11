@@ -29,9 +29,11 @@ jobs:
       run: dotnet build --no-restore MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
+    - name: Pack
+      run: dotnet pack MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: nupkg
-        path: ./${{ env.PROJECT_NAME }}/bin/Debug/net6.0/*.nupkg
+        path: ./${{ env.PROJECT_NAME }}/bin/Debug/*.nupkg
 
