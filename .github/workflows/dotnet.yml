@@ -14,6 +14,7 @@ on:
 
 jobs:
   build:
+    name: Build the package
 
     runs-on: ubuntu-latest
 
@@ -32,8 +33,24 @@ jobs:
     - name: Pack
       run: dotnet pack MyFirstConsoleApplication/MyFirstConsoleApplication.csproj
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: nupkg
         path: ./${{ env.PROJECT_NAME }}/MyFirstConsoleApplication/bin/Debug/*.nupkg
+  
+  deploy:
+    name: Deploy the package
+    needs: build
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/download-artifact@v3
+      with:
+        path: path/to/artifacts
+    
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: path/to/artifacts
