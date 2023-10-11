@@ -17,15 +17,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Runs a single command using the runners shell
-      - name: DownloadArtifactToC
-        uses: actions/download-artifact@v2.1.1
-        with:
-          name: nupkg
-          path: c:\
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - uses: actions/checkout@v3
+    - uses: actions/download-artifact@v3
+      with:
+        path: path/to/artifacts
+    
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: path/to/artifacts
