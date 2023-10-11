@@ -35,5 +35,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: nupkg
-        path: ./${{ env.PROJECT_NAME }}/bin/Debug/*.nupkg
+        path: ./${{ env.PROJECT_NAME }}/MyFirstConsoleApplication/bin/Debug/*.nupkg
 
