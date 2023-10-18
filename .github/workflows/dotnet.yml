@@ -9,6 +9,7 @@ on:
       name:
         type: choice
         description: Where to install
+        required: true
         options: 
         - Richard
         - Ashley
