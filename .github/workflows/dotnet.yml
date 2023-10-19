@@ -18,7 +18,7 @@ jobs:
   build:
     name: Build the package
 
-    runs-on: development-richard
+    runs-on: biztalk2020-dev-richard
 
     steps:
     - uses: actions/checkout@v3
